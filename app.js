@@ -37,7 +37,7 @@ console.log(x.Salary());
 Employee.prototype.Id = function () {
     return Math.floor(1000 + Math.random() * 9000);
 }
-
+Employee.prototype.render = function () {
 for(let i = 0; i < allEmployees.length; i++){
 document.getElementById("employee").innerHTML +="<p>Full Name:"+ allEmployees[i]["Full Name"] +"</p>";
 document.getElementById("employee").innerHTML +="<p>Department:"+ allEmployees[i].department +"</p>";
@@ -48,6 +48,6 @@ document.getElementById("employee").innerHTML +="<p>Id:"+ allEmployees[i].Id() +
 }
 
 
-
+}
 
 
