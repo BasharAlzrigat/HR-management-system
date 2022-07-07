@@ -18,14 +18,18 @@ Employee.prototype.Salary = function () {
     if (this.levelValue === 'Senior') {
         var totalSalary
         totalSalary = (Math.floor(Math.random() * (2000 - 1500 + 1)) + 1500);
-        return totalSalary - totalSalary * 0.075;
+        totalSalary -= (totalSalary * 0.075);
+        return totalSalary;
     } else if (this.levelValue === 'Mid-Senior') {
-        totalSalary = (Math.floor(Math.random() * (1500 - 1000 + 1)) + 1000);
-        return totalSalary - totalSalary * 0.075;
-    } else {
+        totalSalary = (Math.floor(Math.random() * (2000 - 1500 + 1)) + 1500);
+        totalSalary -= (totalSalary * 0.075);
+        return totalSalary;
+        } else {
         totalSalary = (Math.floor(Math.random() * (1000 - 500 + 1)) + 500);
-        return totalSalary - totalSalary * 0.075;
-    }
+        totalSalary = (Math.floor(Math.random() * (2000 - 1500 + 1)) + 1500);
+        totalSalary -= (totalSalary * 0.075);
+        return totalSalary;
+        }
 }
 
 // generate a unique id for each employee:
@@ -42,7 +46,6 @@ new Employee("Safi Walid", "Administration", "Mid-Senior", "img");
 new Employee("Omar Zaid", "Development", "Senior", "img");
 new Employee("Rana Saleh", "Development", "Junior", "img");
 new Employee("Hadi Ahmad", "Finance", "Mid-Senior", "img");
-
 
 
 
