@@ -46,3 +46,42 @@ table {
 	border-collapse: collapse;
 	border-spacing: 0;
 }
+ /* ============================================================== */
+
+ #employee-container {
+    width: 40%;
+    margin: auto;
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
+.employee-card {
+    margin-top: 50px;
+    display: flex;
+    width: 23%;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px 70px 70px 70px;
+    background-color: #477D57;
+    border-radius: 30px;
+}
+ .employee-img-div{
+width: 100%;
+display: flex;
+justify-content: center;
+ }
+ 
+.employee-img {
+    width: 100%;
+}
+.employee-info-div{
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.employee-info-div p {
+    margin-top: 5%;
+    font-size: 34px;
+    color: #D0D7A7;
+}
