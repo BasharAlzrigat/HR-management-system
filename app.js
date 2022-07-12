@@ -1,55 +1,80 @@
+'use strict';
 const allEmployees = []
+const eContainer = document.createElement("div");
 // Employee Constructor Function:
-function Employee(fullNameValue, departmentValue, levelValue, imageUrlValue) {
+function Employee(fullName, department, level, imageUrl) {
 
-    this["Full Name"] = fullNameValue
-    this.department = departmentValue
-    this.level = levelValue
-    this["Image Url"] = imageUrlValue
+    this.fullName = fullName
+    this.department = department
+    this.level = level
+    this.imageUrl = imageUrl
     allEmployees.push(this);
-
     // console.log(this);
-
 }
 // create a new employee object:
-let employee1=new Employee("Ghazi Samer", "Administration", "Senior", "img");
-let employee2=new Employee("Lana Ali", "Finance", "Senior", "img");
-let employee3=new Employee("Tamara Ayoub", "Marketing", "Senior", "img");
-let employee4=new Employee("Safi Walid", "Administration", "Mid-Senior", "img");
-let employee5=new Employee("Omar Zaid", "Development", "Senior", "img");
-let employee6=new Employee("Rana Saleh", "Development", "Junior", "img");
-let employee7=new Employee("Hadi Ahmad", "Finance", "Mid-Senior", "img");
+new Employee("Ghazi Samer", "Administration", "Senior", "../assets/Ghazi.jpg");
+new Employee("Lana Ali", "Finance", "Senior", "../assets/Lana.jpg");
+new Employee("Tamara Ayoub", "Marketing", "Senior", "../assets/Tamara.jpg");
+new Employee("Safi Walid", "Administration", "Mid-Senior", "../assets/Safi.jpg");
+new Employee("Omar Zaid", "Development", "Senior", "../assets/Omar.jpg");
+new Employee("Rana Saleh", "Development", "Junior", "../assets/Rana.jpg");
+new Employee("Hadi Ahmad", "Finance", "Mid-Senior", "../assets/Hadi.jpg");
 
 // calculate the net salary (tax 7.5%):
-let varEmployees = [employee1,employee2,employee3,employee4,employee5,employee6,employee7]
-
 Employee.prototype.Salary = function () {
     if (this.level === "Senior") {
-return Math.floor(Math.random() * (2000 - 1500 + 1)) + 1500;
+        return Math.floor(Math.random() * (2000 - 1500 + 1)) + 1500;
     } else if (this.level === "Mid-Senior") {
-return Math.floor(Math.random() * (1500 - 1000 + 1)) + 1000;
-        } else {
-return Math.floor(Math.random() * (1000 - 500 + 1)) + 500;
-
-}}
+        return Math.floor(Math.random() * (1500 - 1000 + 1)) + 1000;
+    } else {
+        return Math.floor(Math.random() * (1000 - 500 + 1)) + 500;
+    }
+}
 // generate a unique id for each employee:
-
 Employee.prototype.Id = function () {
-    return Math.floor(1000 + Math.random() * 9000);
+    return Math.ceil(Math.random() * 10000)
 }
+// render the employee object to the DOM:
+document.body.appendChild(eContainer);
+eContainer.id="employee-container";
 Employee.prototype.render = function () {
-for(let i = 0; i < allEmployees.length; i++){
-document.getElementById("employee").innerHTML +="<p>Full Name:"+ allEmployees[i]["Full Name"] +"</p>";
-document.getElementById("employee").innerHTML +="<p>Department:"+ allEmployees[i].department +"</p>";
-document.getElementById("employee").innerHTML +="<p>Level:"+ allEmployees[i].level +"</p>";
-document.getElementById("employee").innerHTML +="<p>Image Url:"+ allEmployees[i]["Image Url"] +"</p>";
-document.getElementById("employee").innerHTML +="<p>Salary:"+ allEmployees[i].Salary() +"</p>";
-document.getElementById("employee").innerHTML +="<p>Id:"+ allEmployees[i].Id() +"</p> </br>";
-
+    // create employeeCard div inside the eContainer div:
+    const eCard = document.createElement("div");
+    eContainer.appendChild(eCard);
+    eCard.className = "employee-card"
+    // [IMG] create employeeImgDiv div inside the employeeCard div:
+    const eImgDiv = document.createElement("div");
+    eCard.appendChild(eImgDiv);
+    eImgDiv.className = "employee-img-div"
+    // [IMG] create employeeImg Img inside the employeeImgDiv div:
+    const eImg = document.createElement("img");
+    eImgDiv.appendChild(eImg);
+    eImg.className = "employee-img";
+    eImg.src = this.imageUrl;
+    // [TEXT] create employeeInfoDiv div inside the employeeCard div:
+    const eInfoDiv = document.createElement("div");
+    eCard.appendChild(eInfoDiv);
+    eInfoDiv.className = "employee-info-div"
+    // [TEXT] create employeeNameandID div inside the employeeInfoDiv div:
+    const eNameandID = document.createElement("p");
+    eInfoDiv.appendChild(eNameandID);
+    eNameandID.textContent = `Name: ${this.fullName} - ID: ${this.Id()}`;
+    // [TEXT] create employeeDepartmentandLevel div inside the employeeInfoDiv div:
+    const eDepartmentandLevel = document.createElement("p");
+    eInfoDiv.appendChild(eDepartmentandLevel);
+    eDepartmentandLevel.textContent = `Department: ${this.department} - Level: ${this.level}`;
+    // [TEXT] create employeeSalary div inside the employeeInfoDiv div:
+    const eSalary = document.createElement("p");
+    eInfoDiv.appendChild(eSalary);
+    eSalary.textContent = `Salary: ${this.Salary()}`;
 }
+
+function renderAllEmployees() {
+    for (let i = 0; i < allEmployees.length; i++) {
+        allEmployees[i].render();
+    }
 }
 
-for(let i = 0; i < varEmployees.length; i++) {
-    console.log(varEmployees);
-    varEmployees[i].render();}
 
+renderAllEmployees()
+    // eInfoDiv.textContent = `Name: ${this.fullName} - ID: ${this.Id()}\n Department: ${this.department} - Level: ${this.level}\n Salary: ${this.Salary()}`;
