@@ -12,13 +12,13 @@ function Employee(fullName, department, level, imageUrl) {
     // console.log(this);
 }
 // create a new employee object:
-new Employee("Ghazi Samer", "Administration", "Senior", "../assets/Ghazi.jpg");
-new Employee("Lana Ali", "Finance", "Senior", "../assets/Lana.jpg");
-new Employee("Tamara Ayoub", "Marketing", "Senior", "../assets/Tamara.jpg");
-new Employee("Safi Walid", "Administration", "Mid-Senior", "../assets/Safi.jpg");
-new Employee("Omar Zaid", "Development", "Senior", "../assets/Omar.jpg");
-new Employee("Rana Saleh", "Development", "Junior", "../assets/Rana.jpg");
-new Employee("Hadi Ahmad", "Finance", "Mid-Senior", "../assets/Hadi.jpg");
+new Employee("Ghazi Samer", "Administration", "Senior", "/assets/Ghazi.jpg");
+new Employee("Lana Ali", "Finance", "Senior", "/assets/Lana.jpg");
+new Employee("Tamara Ayoub", "Marketing", "Senior", "/assets/Tamara.jpg");
+new Employee("Safi Walid", "Administration", "Mid-Senior", "/assets/Safi.jpg");
+new Employee("Omar Zaid", "Development", "Senior", "/assets/Omar.jpg");
+new Employee("Rana Saleh", "Development", "Junior", "/assets/Rana.jpg");
+new Employee("Hadi Ahmad", "Finance", "Mid-Senior", "/assets/Hadi.jpg");
 
 // calculate the net salary (tax 7.5%):
 Employee.prototype.Salary = function () {
