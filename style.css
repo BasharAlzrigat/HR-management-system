@@ -3,11 +3,19 @@ body{
 }
 
 #employee-container {
-    width: 56%;
-    margin: auto;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
+
+}
+#Administration {
+
+}
+#Marketing {
+
+}
+#Development {
+
+}
+#Finance {
+    
 }
 .employee-card {
     box-sizing: border-box;
