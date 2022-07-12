@@ -3,19 +3,24 @@ body{
 }
 
 #employee-container {
-
+    display: flex;
+    flex-direction: column;
 }
 #Administration {
-
+    display: flex;
+    flex-direction: row;
 }
 #Marketing {
-
+    display: flex;
+    flex-direction: row;
 }
 #Development {
-
+    display: flex;
+    flex-direction: row;
 }
 #Finance {
-    
+    display: flex;
+    flex-direction: row; 
 }
 .employee-card {
     box-sizing: border-box;
