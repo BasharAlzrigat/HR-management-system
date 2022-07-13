@@ -1,25 +1,47 @@
 'use strict';
 const allEmployees = []
-const allDepartments = ["Administration", "Marketing", "Development", "Finance"]
 let switcher
-// Create the containers divs:
+// Create the containers divs & append them to the DOM:
 const eContainer = document.createElement("div");
 const Administration = document.createElement("div");
 const Marketing = document.createElement("div");
 const Development = document.createElement("div");
 const Finance = document.createElement("div");
-//append the containers to the DOM:
+const AdministrationCards = document.createElement("div");
+const MarketingCards = document.createElement("div");
+const DevelopmentCards = document.createElement("div");
+const FinanceCards = document.createElement("div");
 document.body.appendChild(eContainer);
 eContainer.appendChild(Administration);
 eContainer.appendChild(Marketing);
 eContainer.appendChild(Development);
 eContainer.appendChild(Finance);
-// add id to each container:
+Administration.appendChild(AdministrationCards);
+Marketing.appendChild(MarketingCards);
+Development.appendChild(DevelopmentCards);
+Finance.appendChild(FinanceCards);
+Administration.className = "card-container";
+Marketing.className = "card-container";
+Development.className = "card-container";
+Finance.className = "card-container";
 eContainer.id = "employee-container";
-Administration.id = "Administration";
-Marketing.id = "Marketing";
-Development.id = "Development";
-Finance.id = "Finance";
+AdministrationCards.id = "AdministrationCards";
+MarketingCards.id = "MarketingCards";
+DevelopmentCards.id = "DevelopmentCards";
+FinanceCards.id = "FinanceCards";
+// Create Headlines for the departments & append them to the DOM:
+const administrationHeadline = document.createElement("h2");
+const marketingHeadline = document.createElement("h2");
+const developmentHeadline = document.createElement("h2");
+const financeHeadline = document.createElement("h2");
+Administration.appendChild(administrationHeadline);
+Marketing.appendChild(marketingHeadline);
+Development.appendChild(developmentHeadline);
+Finance.appendChild(financeHeadline);
+administrationHeadline.textContent = "Administration";
+marketingHeadline.textContent = "Marketing";
+developmentHeadline.textContent = "Development";
+financeHeadline.textContent = "Finance";
 // Employee Constructor Function:
 function Employee(fullName, department, level, imageUrl) {
 
@@ -29,8 +51,8 @@ function Employee(fullName, department, level, imageUrl) {
     this.imageUrl = imageUrl
     allEmployees.push(this);
 }
+
 // create a new employee object:
-new Employee("Bashar Alzrigat", "IT", "Senior", "");
 new Employee("Ghazi Samer", "Administration", "Senior", "assets/Ghazi.jpg");
 new Employee("Lana Ali", "Finance", "Senior", "assets/Lana.jpg");
 new Employee("Tamara Ayoub", "Marketing", "Senior", "assets/Tamara.jpg");
@@ -87,15 +109,13 @@ Employee.prototype.render = function (switcher) {
 }
 
 function renderAllEmployees() {
+
     for (let i = 0; i < allEmployees.length; i++) {
-        for (let j = 0; j < allDepartments.length; j++) {
-            if (allEmployees[i].department === allDepartments[j]) {
-                 switcher = document.getElementById(allDepartments[j]);
+       
+                switcher = document.getElementById(`${allEmployees[i].department}Cards`);
                 allEmployees[i].render(switcher);
-            }
-        }
+
     }
 }
 
 renderAllEmployees()
-    // eInfoDiv.textContent = `Name: ${this.fullName} - ID: ${this.Id()}\n Department: ${this.department} - Level: ${this.level}\n Salary: ${this.Salary()}`;

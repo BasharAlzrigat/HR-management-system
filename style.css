@@ -3,30 +3,54 @@ body{
 }
 
 #employee-container {
+    margin: auto;
+    width: 418px;
     display: flex;
     flex-direction: column;
 }
-#Administration {
+#AdministrationCards {
+    margin: 5px;
+
     display: flex;
     flex-direction: row;
+    justify-content: space-around;
 }
-#Marketing {
+#MarketingCards {
+    margin: 5px;
+
     display: flex;
     flex-direction: row;
+    justify-content: space-around;
 }
-#Development {
+#DevelopmentCards {
+    margin: 5px;
+
     display: flex;
     flex-direction: row;
+    justify-content: space-around;
 }
-#Finance {
+#FinanceCards {
+    margin: 5px;
+
     display: flex;
     flex-direction: row; 
+    justify-content: space-around;
+}
+.card-container {
+    margin: 15px;
+    border-style: ridge;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column-reverse;
+    background-color: #f5f5f5;
 }
 .employee-card {
+    border-style: ridge;
+    border-radius: 15px;
     box-sizing: border-box;
-    margin: 10px;
+    margin: 5px;
     display: flex;
-    width: 30%;
+    width: 50%;
     flex-direction: column;
     align-items: center;
     padding: 1.5% 2.5% 1.5% 2.5%;
@@ -53,5 +77,14 @@ body{
     margin-top: 0;
     margin-bottom: 5px;
     font-size: 75%;
+    color: #D0D7A7;
+}
+h2{
+    margin: auto;
+    margin-top: 5px;
+    border-style: ridge;
+    border-radius: 15px;
+    padding: 5px;
+    background-color: #477D57;
     color: #D0D7A7;
 }
